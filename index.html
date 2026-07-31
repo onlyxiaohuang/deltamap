@@ -1,0 +1,75 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+  <meta name="theme-color" content="#10130f"><meta name="description" content="轻量化三角洲全面战场地图编辑器">
+  <title>DeltaMap 战术地图</title><link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<div class="app-shell">
+  <header class="topbar">
+    <button class="icon-btn mobile-only" id="mapPanelButton" aria-label="地图列表" title="地图列表"><i data-lucide="panel-left"></i></button>
+    <a class="brand" href="#" aria-label="DeltaMap"><span class="brand-mark">Δ</span><span class="brand-copy"><b>DELTAMAP</b><small>战术地图</small></span></a>
+    <div class="topbar-divider"></div><div class="map-heading"><span class="mode-label">全面战场</span><strong id="currentMapTitle">攀升</strong></div>
+    <div class="save-state" id="saveState" aria-live="polite"><span class="save-dot"></span><span>已保存</span></div>
+    <div class="topbar-actions">
+      <button class="icon-btn" id="undoButton" aria-label="撤销" title="撤销" disabled><i data-lucide="undo-2"></i></button>
+      <button class="icon-btn" id="redoButton" aria-label="重做" title="重做" disabled><i data-lucide="redo-2"></i></button>
+      <button class="icon-btn" id="clearButton" aria-label="清空标注" title="清空标注"><i data-lucide="trash-2"></i></button>
+      <div class="export-wrap"><button class="primary-btn" id="exportButton"><i data-lucide="download"></i><span>导出</span><i class="chevron" data-lucide="chevron-down"></i></button>
+        <div class="menu" id="exportMenu" role="menu">
+          <button role="menuitem" data-export="png"><i data-lucide="image"></i><span><b>导出当前视图</b><small>PNG 图片</small></span></button>
+          <button role="menuitem" data-export="json"><i data-lucide="file-json"></i><span><b>导出战术文件</b><small>可继续编辑</small></span></button>
+          <button role="menuitem" data-export="import"><i data-lucide="file-up"></i><span><b>导入战术文件</b><small>恢复全部地图</small></span></button>
+        </div>
+      </div>
+    </div>
+  </header>
+  <aside class="map-panel" id="mapPanel">
+    <div class="panel-header"><div><span class="eyebrow">TACTICAL DATA</span><h1>战场工具</h1></div><button class="icon-btn mobile-only" id="closeMapPanel" aria-label="关闭"><i data-lucide="x"></i></button></div>
+    <div class="side-tabs" role="tablist">
+      <button class="active" data-panel-tab="maps" role="tab" aria-selected="true"><i data-lucide="map"></i><span>地图</span></button>
+      <button data-panel-tab="layers" role="tab" aria-selected="false"><i data-lucide="layers-3"></i><span>图层</span></button>
+    </div>
+    <div class="mode-switch" id="modeSwitch"><button class="active" data-mode="attack">攻防</button><button data-mode="occupy">占领</button></div>
+    <div class="stage-switch" id="stageSwitch">
+      <button class="icon-btn" id="prevStage" aria-label="上一个据点" title="上一个据点"><i data-lucide="chevron-left"></i></button>
+      <div><small>当前据点</small><b id="stageLabel">载入中</b></div>
+      <button class="icon-btn" id="nextStage" aria-label="下一个据点" title="下一个据点"><i data-lucide="chevron-right"></i></button>
+    </div>
+    <div class="panel-pane active" data-panel-pane="maps"><div class="map-list" id="mapList"></div></div>
+    <div class="panel-pane" data-panel-pane="layers">
+      <div class="layer-actions"><span id="layerSummary">载入点位数据</span><button id="toggleAllLayers">全部显示</button></div>
+      <div class="layer-list" id="layerList"></div>
+      <div class="layer-source"><i data-lucide="radio-tower"></i><span>官方全面战场点位</span></div>
+    </div>
+    <div class="panel-footer"><span class="online-dot"></span><div><b>本地自动保存</b><small>数据仅存于此浏览器</small></div></div>
+  </aside>
+  <main class="workspace"><div class="canvas-wrap" id="canvasWrap">
+    <canvas id="mapCanvas"></canvas><canvas id="drawCanvas"></canvas>
+    <div class="loading-state" id="loadingState"><span class="spinner"></span><span>正在载入地图</span></div>
+    <div class="tool-rail" id="toolRail" aria-label="绘图工具">
+      <button class="tool-btn active" data-tool="hand" aria-label="移动地图" title="移动地图"><i data-lucide="hand"></i></button><span class="rail-divider"></span>
+      <button class="tool-btn" data-tool="pen" aria-label="画笔" title="画笔"><i data-lucide="pencil"></i></button>
+      <button class="tool-btn" data-tool="line" aria-label="直线" title="直线"><i data-lucide="minus"></i></button>
+      <button class="tool-btn" data-tool="arrow" aria-label="箭头" title="箭头"><i data-lucide="move-up-right"></i></button>
+      <button class="tool-btn" data-tool="rect" aria-label="矩形" title="矩形"><i data-lucide="square"></i></button>
+      <button class="tool-btn" data-tool="circle" aria-label="圆形" title="圆形"><i data-lucide="circle"></i></button>
+      <button class="tool-btn" data-tool="marker" aria-label="标记点" title="标记点"><i data-lucide="map-pin"></i></button>
+      <button class="tool-btn" data-tool="text" aria-label="文字" title="文字"><i data-lucide="type"></i></button><span class="rail-divider"></span>
+      <button class="tool-btn" data-tool="eraser" aria-label="橡皮擦" title="橡皮擦"><i data-lucide="eraser"></i></button>
+    </div>
+    <div class="style-bar"><div class="color-row" id="colorRow" aria-label="颜色"></div><span class="style-divider"></span><div class="width-control" id="widthControl" aria-label="线宽">
+      <button data-width="2" aria-label="细线" title="细线"><span style="height:2px"></span></button><button class="active" data-width="5" aria-label="中线" title="中线"><span style="height:5px"></span></button><button data-width="9" aria-label="粗线" title="粗线"><span style="height:9px"></span></button>
+    </div></div>
+    <div class="zoom-controls"><button class="icon-btn" id="zoomIn" aria-label="放大" title="放大"><i data-lucide="plus"></i></button><button class="icon-btn" id="zoomOut" aria-label="缩小" title="缩小"><i data-lucide="minus"></i></button><button class="icon-btn" id="fitView" aria-label="适应画布" title="适应画布"><i data-lucide="scan"></i></button></div>
+    <div class="map-meta"><span id="zoomLabel">100%</span><span class="meta-separator"></span><span id="objectCount">0 个标注</span></div>
+    <div class="poi-tooltip" id="poiTooltip"><img alt=""><span><b></b><small></small></span></div>
+    <div class="text-editor" id="textEditor"><input id="textInput" maxlength="32" autocomplete="off" placeholder="输入标注文字"><button class="icon-btn" id="confirmText" aria-label="确认"><i data-lucide="check"></i></button></div>
+  </div></main>
+</div>
+<div class="scrim" id="scrim"></div><div class="toast" id="toast" role="status"></div>
+<div class="dialog-backdrop" id="clearDialog"><div class="dialog" role="dialog" aria-modal="true" aria-labelledby="dialogTitle"><div class="dialog-icon"><i data-lucide="trash-2"></i></div><h2 id="dialogTitle">清空当前地图？</h2><p>当前地图上的所有标注将被删除。</p><div class="dialog-actions"><button class="secondary-btn" id="cancelClear">取消</button><button class="danger-btn" id="confirmClear">清空标注</button></div></div></div>
+<input type="file" id="fileInput" accept="application/json,.json" hidden>
+<script src="https://unpkg.com/lucide@0.468.0/dist/umd/lucide.min.js"></script><script src="app.js"></script>
+</body></html>
