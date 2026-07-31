@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
   <meta name="theme-color" content="#10130f"><meta name="description" content="轻量化三角洲全面战场地图编辑器">
-  <title>DeltaMap 战术地图</title><link rel="stylesheet" href="styles.css">
+  <title>DeltaMap 战术地图</title><link rel="stylesheet" href="styles.css"><link rel="stylesheet" href="marker-tools.css">
 </head>
 <body>
 <div class="app-shell">
@@ -43,7 +43,7 @@
       <div class="layer-list" id="layerList"></div>
       <div class="layer-source"><i data-lucide="radio-tower"></i><span>官方全面战场点位</span></div>
     </div>
-    <div class="panel-footer"><span class="online-dot"></span><div><b>本地自动保存</b><small>数据仅存于此浏览器</small></div></div>
+    <div class="panel-footer"><span class="online-dot"></span><div><b>JDI出品，欢迎各路大神加入JDI。</b><small>本地自动保存，数据仅存于此浏览器</small><a href="https://github.com/onlyxiaohuang/deltamap" target="_blank" rel="noopener">onlyxiaohuang/deltamap · 求个 Star</a></div></div>
   </aside>
   <main class="workspace"><div class="canvas-wrap" id="canvasWrap">
     <canvas id="mapCanvas"></canvas><canvas id="drawCanvas"></canvas>
@@ -56,9 +56,11 @@
       <button class="tool-btn" data-tool="rect" aria-label="矩形" title="矩形"><i data-lucide="square"></i></button>
       <button class="tool-btn" data-tool="circle" aria-label="圆形" title="圆形"><i data-lucide="circle"></i></button>
       <button class="tool-btn" data-tool="marker" aria-label="标记点" title="标记点"><i data-lucide="map-pin"></i></button>
+      <button class="tool-btn" data-tool="unit" aria-label="载具与人员" title="载具与人员"><i data-lucide="truck"></i></button>
       <button class="tool-btn" data-tool="text" aria-label="文字" title="文字"><i data-lucide="type"></i></button><span class="rail-divider"></span>
       <button class="tool-btn" data-tool="eraser" aria-label="橡皮擦" title="橡皮擦"><i data-lucide="eraser"></i></button>
     </div>
+    <div class="unit-palette" id="unitPalette" aria-label="载具与人员标记"></div>
     <div class="style-bar"><div class="color-row" id="colorRow" aria-label="颜色"></div><span class="style-divider"></span><div class="width-control" id="widthControl" aria-label="线宽">
       <button data-width="2" aria-label="细线" title="细线"><span style="height:2px"></span></button><button class="active" data-width="5" aria-label="中线" title="中线"><span style="height:5px"></span></button><button data-width="9" aria-label="粗线" title="粗线"><span style="height:9px"></span></button>
     </div></div>
@@ -71,5 +73,5 @@
 <div class="scrim" id="scrim"></div><div class="toast" id="toast" role="status"></div>
 <div class="dialog-backdrop" id="clearDialog"><div class="dialog" role="dialog" aria-modal="true" aria-labelledby="dialogTitle"><div class="dialog-icon"><i data-lucide="trash-2"></i></div><h2 id="dialogTitle">清空当前地图？</h2><p>当前地图上的所有标注将被删除。</p><div class="dialog-actions"><button class="secondary-btn" id="cancelClear">取消</button><button class="danger-btn" id="confirmClear">清空标注</button></div></div></div>
 <input type="file" id="fileInput" accept="application/json,.json" hidden>
-<script src="https://unpkg.com/lucide@0.468.0/dist/umd/lucide.min.js"></script><script src="app.js"></script>
+<script src="assets/lib/lucide.min.js"></script><script src="app.js"></script>
 </body></html>
