@@ -1,0 +1,20 @@
+{
+  "schema": "deltamap-force-review/v1",
+  "title": "SEA vs JDI - 断轨",
+  "source": "https://www.bilibili.com/video/BV1QxGM66EJN/",
+  "sampling": "Bilibili storyboard 约每 5 秒一帧；兵力数字因低分辨率暂记为 --",
+  "rounds": [
+    { "round": 1, "attack": "SEA", "defense": "JDI", "attackColor": "#42a5ff", "defenseColor": "#ffb43b", "duration": 2225, "points": [
+      { "time": 30, "videoTime": 180, "attackForce": "--", "defenseForce": "--", "objectives": [{ "id": "A", "owner": "defense", "progress": 0 }] },
+      { "time": 400, "videoTime": 550, "attackForce": "--", "defenseForce": "--", "objectives": [{ "id": "B1", "owner": "defense", "progress": 0 }] },
+      { "time": 1200, "videoTime": 1350, "attackForce": "--", "defenseForce": "--", "objectives": [{ "id": "C1", "owner": "defense", "progress": 0 }, { "id": "C2", "owner": "defense", "progress": 0 }] },
+      { "time": 2150, "videoTime": 2300, "attackForce": "--", "defenseForce": "--", "objectives": [{ "id": "C1", "owner": "defense", "progress": 0 }, { "id": "C2", "owner": "defense", "progress": 0 }] }
+    ] },
+    { "round": 2, "attack": "JDI", "defense": "SEA", "attackColor": "#ffb43b", "defenseColor": "#42a5ff", "duration": 1525, "points": [
+      { "time": 200, "videoTime": 3050, "attackForce": "--", "defenseForce": "--", "objectives": [{ "id": "A", "owner": "attack", "progress": 65 }] },
+      { "time": 400, "videoTime": 3250, "attackForce": "--", "defenseForce": "--", "objectives": [{ "id": "B1", "owner": "attack", "progress": 35 }] },
+      { "time": 800, "videoTime": 3650, "attackForce": "--", "defenseForce": "--", "objectives": [{ "id": "C1", "owner": "attack", "progress": 45 }, { "id": "C2", "owner": "defense", "progress": 0 }] },
+      { "time": 1200, "videoTime": 4050, "attackForce": "--", "defenseForce": "--", "objectives": [{ "id": "D1", "owner": "attack", "progress": 35 }, { "id": "D2", "owner": "defense", "progress": 0 }] }
+    ] }
+  ]
+}

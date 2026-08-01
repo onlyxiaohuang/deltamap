@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
   <meta name="theme-color" content="#10130f"><meta name="description" content="轻量化三角洲全面战场地图编辑器">
-  <title>DeltaMap 战术地图</title><link rel="stylesheet" href="styles.css"><link rel="stylesheet" href="marker-tools.css"><link rel="stylesheet" href="battle-timeline.css">
+  <title>DeltaMap 战术地图</title><link rel="stylesheet" href="styles.css"><link rel="stylesheet" href="marker-tools.css"><link rel="stylesheet" href="battle-timeline.css"><link rel="stylesheet" href="battle-review.css">
 </head>
 <body>
 <div class="app-shell">
@@ -69,14 +69,15 @@
     <div class="poi-tooltip" id="poiTooltip"><img alt=""><span><b></b><small></small></span></div>
     <div class="text-editor" id="textEditor"><input id="textInput" maxlength="32" autocomplete="off" placeholder="输入标注文字"><button class="icon-btn" id="confirmText" aria-label="确认"><i data-lucide="check"></i></button></div>
     <section class="battle-timeline" id="battleTimeline">
-      <div class="battle-head"><div class="battle-rounds" id="battleRounds"></div><strong class="battle-summary" id="battleSummary"></strong><span class="battle-clock" id="battleClock"></span></div>
+      <div class="battle-head"><div class="battle-rounds" id="battleRounds"></div><strong class="battle-summary" id="battleSummary">未导入复盘</strong><span class="battle-clock" id="battleClock"></span><button class="battle-action" id="importBattleReview"><i data-lucide="file-up"></i>导入</button><button class="battle-action danger" id="clearBattleReview"><i data-lucide="trash-2"></i>清除</button></div>
       <input id="battleScrubber" type="range" min="0" max="1" value="0" step="1" aria-label="战线时间进度">
-      <div class="battle-stats"><span class="battle-side attack" id="battleAttackStats"></span><span class="battle-side defense" id="battleDefenseStats"></span><span class="battle-source">抽帧估算</span></div>
+      <div class="battle-stats"><span class="battle-side attack" id="battleAttackStats"></span><div class="battle-objectives" id="battleObjectives"></div><span class="battle-side defense" id="battleDefenseStats"></span></div>
     </section>
   </div></main>
 </div>
 <div class="scrim" id="scrim"></div><div class="toast" id="toast" role="status"></div>
 <div class="dialog-backdrop" id="clearDialog"><div class="dialog" role="dialog" aria-modal="true" aria-labelledby="dialogTitle"><div class="dialog-icon"><i data-lucide="trash-2"></i></div><h2 id="dialogTitle">清空当前地图？</h2><p>当前地图上的所有标注将被删除。</p><div class="dialog-actions"><button class="secondary-btn" id="cancelClear">取消</button><button class="danger-btn" id="confirmClear">清空标注</button></div></div></div>
-<input type="file" id="fileInput" accept="application/json,.json" hidden>
+  <input type="file" id="fileInput" accept="application/json,.json" hidden>
+  <input type="file" id="battleReviewFile" accept="application/json,.json" hidden>
 <script src="assets/lib/lucide.min.js"></script><script src="battle-timeline.js"></script><script src="app.js"></script>
 </body></html>
