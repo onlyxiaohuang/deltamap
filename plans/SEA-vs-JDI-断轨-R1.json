@@ -15,8 +15,7 @@
     "phases": [
       { "stage": "A", "idea": "SEA 双路接近施工区，主力正面压点，机动组从南侧切入；JDI 依托掩体形成点内与后坡交叉火力。" },
       { "stage": "B1", "idea": "SEA 载具沿东侧道路提供压制，步兵抢占北侧高点；JDI 以后方建筑为复活与反推支点。" },
-      { "stage": "C1/C2", "idea": "SEA 分成两组同步施压，避免兵力全部堵在单一路口；JDI 在两点之间保留机动预备队。" },
-      { "stage": "D1/D2", "idea": "SEA 需要先清除外围火力再双点拉扯；JDI 以纵深防守拖延进攻票数。" }
+      { "stage": "C1/C2", "idea": "SEA 分成两组同步施压，避免兵力全部堵在单一路口；JDI 在两点之间保留机动预备队，并在 C 区守到回合结束。" }
     ],
     "legend": { "#42a5ff": "SEA 进攻部署", "#ffb43b": "JDI 防守部署", "#ffffff": "阶段说明" },
     "confidence": "依据无字幕赛事导播画面的全局航拍、据点进度和交火重心进行宏观复盘。"
@@ -49,15 +48,7 @@
       { "type": "unit", "unit": "person", "points": [{ "x": 2110, "y": 1480 }], "color": "#42a5ff", "width": 5 },
       { "type": "line", "points": [{ "x": 2140, "y": 1390 }, { "x": 2300, "y": 1930 }], "color": "#ffb43b", "width": 9 },
       { "type": "unit", "unit": "q_gdjq", "points": [{ "x": 2180, "y": 1700 }], "color": "#ffb43b", "width": 5 },
-      { "type": "text", "points": [{ "x": 1960, "y": 1330 }], "text": "C区：双点拉扯，守方预备队居中", "color": "#ffffff", "width": 2 },
-
-      { "type": "arrow", "points": [{ "x": 2160, "y": 1810 }, { "x": 1370, "y": 2070 }], "color": "#42a5ff", "width": 9 },
-      { "type": "arrow", "points": [{ "x": 2040, "y": 1570 }, { "x": 1120, "y": 2260 }], "color": "#42a5ff", "width": 5 },
-      { "type": "unit", "unit": "deploy_qxtk", "points": [{ "x": 1650, "y": 2010 }], "color": "#42a5ff", "width": 5 },
-      { "type": "line", "points": [{ "x": 1180, "y": 1900 }, { "x": 980, "y": 2430 }], "color": "#ffb43b", "width": 9 },
-      { "type": "unit", "unit": "q_afp", "points": [{ "x": 1240, "y": 2200 }], "color": "#ffb43b", "width": 5 },
-      { "type": "unit", "unit": "person", "points": [{ "x": 980, "y": 2350 }], "color": "#ffb43b", "width": 5 },
-      { "type": "text", "points": [{ "x": 900, "y": 2510 }], "text": "D区：JDI纵深拖票/双点互援", "color": "#ffb43b", "width": 2 }
+      { "type": "text", "points": [{ "x": 1960, "y": 1330 }], "text": "C区：JDI双点互援并守到回合结束", "color": "#ffffff", "width": 2 }
     ],
     "hdz": [], "jzt": [], "dc": [], "yz": [], "wmsyh": [], "dsc": []
   },

@@ -58,31 +58,16 @@
         {
           "objective": "C1/C2",
           "videoStartSecond": 1260,
-          "videoEndSecond": 1800,
+          "videoEndSecond": 2375,
           "roundElapsedStartSecond": 1110,
-          "roundElapsedEndSecond": 1650,
-          "durationSeconds": 540,
+          "roundElapsedEndSecond": 2225,
+          "durationSeconds": 1115,
           "mainAttackAxis": "沿管线与厂房通道向 C1 正面施压",
           "secondaryAxis": "分兵穿越北侧建筑和高差，牵制 C2 与两点之间的预备队",
           "infantryMovement": ["SEA 由单一桥头队形改为双点分组", "占领外围屋顶和管线附近后再向点内收缩"],
           "vehicleMovement": ["车辆沿厂区外侧较宽道路移动，避免进入管线密集的步兵杀伤区", "火力重点转向压制两点之间的增援线"],
-          "defenseStructure": ["JDI 在 C1/C2 之间保留机动力量，按受压方向横向补防"],
-          "turningPoints": ["攻击方通过双点拉扯减少了单路拥堵，但推进速度仍受厂房交叉火力限制"],
-          "confidence": "medium"
-        },
-        {
-          "objective": "D1/D2",
-          "videoStartSecond": 1800,
-          "videoEndSecond": 2375,
-          "roundElapsedStartSecond": 1650,
-          "roundElapsedEndSecond": 2225,
-          "durationSeconds": 575,
-          "mainAttackAxis": "从中央厂区沿铁路和道路向 D1 展开",
-          "secondaryAxis": "南侧低地转向 D2，迫使守方在终局双点间分兵",
-          "infantryMovement": ["SEA 先清外围屋顶、坡面和厂房入口，再尝试双点同时施压", "JDI 退入终局纵深后以短距离反推反复中断占领"],
-          "vehicleMovement": ["进攻载具在厂区外缘和铁路附近提供远距离火力", "复杂建筑遮挡使车辆难以代替步兵完成点内清场"],
-          "defenseStructure": ["JDI 依靠 D1/D2 双点互援和后方复活纵深拖延票数，最终守住回合"],
-          "turningPoints": ["SEA 未能同时切断两个据点的回补路线，终局推进被持续重置"],
+          "defenseStructure": ["JDI 在 C1/C2 之间保留机动力量，按受压方向横向补防，并以厂房和管线作为反推支点"],
+          "turningPoints": ["攻击方通过双点拉扯减少了单路拥堵，但始终没有切断 C1/C2 的回补；JDI 在 C 区守到回合结束"],
           "confidence": "medium"
         }
       ]
