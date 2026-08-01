@@ -1,0 +1,67 @@
+{
+  "version": 1,
+  "strategy": {
+    "schema": "deltamap-strategy/v1",
+    "title": "SEA vs JDI - 断轨 - 第二回合换边",
+    "source": "https://www.bilibili.com/video/BV1QxGM66EJN/",
+    "match": "百姓杯全民赛：SEA战队 vs JDI战队",
+    "map": "断轨",
+    "round": 2,
+    "teams": {
+      "attack": { "name": "JDI", "color": "#ffb43b" },
+      "defense": { "name": "SEA", "color": "#42a5ff" }
+    },
+    "phases": [
+      { "stage": "A", "idea": "JDI 采用正面火力吸引与南侧步兵切点并行；SEA 前沿观察组延缓后向点内收缩。" },
+      { "stage": "B1", "idea": "JDI 以装甲载具跟进主路、步兵抢建筑；SEA 重点封锁主路并保留侧后反绕路线。" },
+      { "stage": "C1/C2", "idea": "JDI 同步触点迫使守军分兵，再向薄弱点集中；SEA 中央预备组快速补位。" },
+      { "stage": "D1/D2", "idea": "JDI 两翼展开制造双点压力；SEA 用固定火力守入口，机动组负责点间互援。" }
+    ],
+    "legend": { "#42a5ff": "SEA 防守部署", "#ffb43b": "JDI 进攻部署", "#ffffff": "阶段说明" },
+    "confidence": "依据无字幕赛事导播画面的全局航拍、据点进度和交火重心进行宏观复盘。"
+  },
+  "currentMap": "dg",
+  "mode": "attack",
+  "drawings": {
+    "pc": [], "ljd": [], "gc": [], "jq": [], "qhz": [], "df": [],
+    "dg": [
+      { "type": "text", "points": [{ "x": 3490, "y": 2820 }], "text": "JDI换边进攻", "color": "#ffb43b", "width": 5 },
+      { "type": "arrow", "points": [{ "x": 3530, "y": 2700 }, { "x": 2970, "y": 2440 }], "color": "#ffb43b", "width": 9 },
+      { "type": "arrow", "points": [{ "x": 3440, "y": 2170 }, { "x": 3020, "y": 2380 }], "color": "#ffb43b", "width": 5 },
+      { "type": "unit", "unit": "deploy_m1a4zztk", "points": [{ "x": 3280, "y": 2660 }], "color": "#ffb43b", "width": 5 },
+      { "type": "unit", "unit": "person", "points": [{ "x": 3120, "y": 2290 }], "color": "#ffb43b", "width": 5 },
+      { "type": "unit", "unit": "person", "points": [{ "x": 2910, "y": 2370 }], "color": "#42a5ff", "width": 5 },
+      { "type": "unit", "unit": "q_gdjq", "points": [{ "x": 3000, "y": 2520 }], "color": "#42a5ff", "width": 5 },
+      { "type": "arrow", "points": [{ "x": 2840, "y": 2460 }, { "x": 3040, "y": 2550 }], "color": "#42a5ff", "width": 2 },
+      { "type": "text", "points": [{ "x": 2810, "y": 2600 }], "text": "A：SEA前沿迟滞后收点", "color": "#42a5ff", "width": 2 },
+
+      { "type": "arrow", "points": [{ "x": 2950, "y": 2390 }, { "x": 2840, "y": 1700 }], "color": "#ffb43b", "width": 9 },
+      { "type": "arrow", "points": [{ "x": 3090, "y": 2240 }, { "x": 3000, "y": 1740 }], "color": "#ffb43b", "width": 5 },
+      { "type": "unit", "unit": "deploy_g1bzc", "points": [{ "x": 3010, "y": 1900 }], "color": "#ffb43b", "width": 5 },
+      { "type": "line", "points": [{ "x": 2730, "y": 1590 }, { "x": 2980, "y": 1580 }], "color": "#42a5ff", "width": 9 },
+      { "type": "unit", "unit": "q_gdaap", "points": [{ "x": 2780, "y": 1640 }], "color": "#42a5ff", "width": 5 },
+      { "type": "unit", "unit": "person", "points": [{ "x": 3020, "y": 1720 }], "color": "#42a5ff", "width": 5 },
+      { "type": "text", "points": [{ "x": 2970, "y": 1500 }], "text": "B1：主路封锁/侧后反绕", "color": "#ffffff", "width": 2 },
+
+      { "type": "arrow", "points": [{ "x": 2820, "y": 1680 }, { "x": 2250, "y": 1840 }], "color": "#ffb43b", "width": 9 },
+      { "type": "arrow", "points": [{ "x": 2780, "y": 1620 }, { "x": 2040, "y": 1560 }], "color": "#ffb43b", "width": 5 },
+      { "type": "unit", "unit": "person", "points": [{ "x": 2300, "y": 1780 }], "color": "#ffb43b", "width": 5 },
+      { "type": "unit", "unit": "person", "points": [{ "x": 2100, "y": 1480 }], "color": "#ffb43b", "width": 5 },
+      { "type": "unit", "unit": "person", "points": [{ "x": 2170, "y": 1680 }], "color": "#42a5ff", "width": 5 },
+      { "type": "arrow", "points": [{ "x": 2150, "y": 1690 }, { "x": 2220, "y": 1840 }], "color": "#42a5ff", "width": 2 },
+      { "type": "text", "points": [{ "x": 1960, "y": 1340 }], "text": "C区：JDI同步触点后集中突破", "color": "#ffb43b", "width": 2 },
+
+      { "type": "arrow", "points": [{ "x": 2200, "y": 1830 }, { "x": 1360, "y": 2080 }], "color": "#ffb43b", "width": 9 },
+      { "type": "arrow", "points": [{ "x": 2020, "y": 1570 }, { "x": 1110, "y": 2280 }], "color": "#ffb43b", "width": 5 },
+      { "type": "unit", "unit": "deploy_qxtk", "points": [{ "x": 1640, "y": 2020 }], "color": "#ffb43b", "width": 5 },
+      { "type": "unit", "unit": "q_afp", "points": [{ "x": 1220, "y": 2180 }], "color": "#42a5ff", "width": 5 },
+      { "type": "line", "points": [{ "x": 1180, "y": 1900 }, { "x": 970, "y": 2420 }], "color": "#42a5ff", "width": 9 },
+      { "type": "arrow", "points": [{ "x": 1330, "y": 2070 }, { "x": 1080, "y": 2290 }], "color": "#42a5ff", "width": 2 },
+      { "type": "text", "points": [{ "x": 900, "y": 2510 }], "text": "D区：SEA固定火力+点间机动互援", "color": "#42a5ff", "width": 2 }
+    ],
+    "hdz": [], "jzt": [], "dc": [], "yz": [], "wmsyh": [], "dsc": []
+  },
+  "layers": { "boundary": true, "objective": true, "base": true, "vehicle": false, "supply": false, "ammo": false, "weapon": false, "device": false },
+  "stages": { "dg:attack": 0 },
+  "updatedAt": 1785517200000
+}
