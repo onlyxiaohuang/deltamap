@@ -6,6 +6,7 @@ $launcherDir = Join-Path $projectRoot "launcher"
 $packagePath = Join-Path $launcherDir "DeltaMap.package.zip"
 $responsePath = Join-Path $launcherDir "build.rsp"
 $outputPath = Join-Path $releaseDir "DeltaMap.exe"
+$iconPath = Join-Path $launcherDir "DeltaMap.ico"
 $compiler = "$env:WINDIR\Microsoft.NET\Framework64\v4.0.30319\csc.exe"
 
 if (-not (Test-Path $compiler)) {
@@ -16,6 +17,7 @@ if (-not (Test-Path $compiler)) {
 }
 
 New-Item -ItemType Directory -Force -Path $releaseDir | Out-Null
+& (Join-Path $projectRoot "tools\generate-app-icon.ps1") -ProjectRoot $projectRoot
 if (Test-Path $packagePath) { Remove-Item -LiteralPath $packagePath -Force }
 if (Test-Path $outputPath) { Remove-Item -LiteralPath $outputPath -Force }
 
@@ -55,6 +57,7 @@ $arguments = @(
     "/target:winexe",
     "/platform:anycpu",
     "/optimize+",
+    "/win32icon:`"$iconPath`"",
     "/out:`"$outputPath`"",
     ('/resource:"{0}",DeltaMap.package.zip' -f $packagePath)
 )
