@@ -1,0 +1,17 @@
+{
+  "name": "deltamap-collaboration",
+  "version": "1.2.0",
+  "private": true,
+  "description": "DeltaMap realtime collaboration server",
+  "type": "module",
+  "scripts": {
+    "start": "node server/collab-server.js",
+    "test:collab": "node tests/collaboration.test.js"
+  },
+  "engines": {
+    "node": ">=22.5.0"
+  },
+  "dependencies": {
+    "ws": "^8.18.0"
+  }
+}

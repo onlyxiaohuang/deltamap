@@ -33,6 +33,8 @@ try {
         (Join-Path $projectRoot "measure.css")
         (Join-Path $projectRoot "callouts.css")
         (Join-Path $projectRoot "gadgets.css")
+        (Join-Path $projectRoot "collaboration.css")
+        (Join-Path $projectRoot "collaboration.js")
     )
     $files = @(Get-Item -LiteralPath $webFiles)
     $files += @(Get-ChildItem (Join-Path $projectRoot "assets") -File -Recurse)

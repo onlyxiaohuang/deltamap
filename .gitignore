@@ -1,3 +1,5 @@
 release/
 launcher/*.zip
 launcher/*.rsp
+node_modules/
+server/data/

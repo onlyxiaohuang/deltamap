@@ -3,19 +3,20 @@
 <head>
   <meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
   <meta name="theme-color" content="#10130f"><meta name="description" content="轻量化三角洲全面战场地图编辑器">
-  <title>DeltaMap 战术地图</title><link rel="icon" type="image/png" href="assets/app-icon.png"><link rel="stylesheet" href="styles.css"><link rel="stylesheet" href="marker-tools.css"><link rel="stylesheet" href="measure.css"><link rel="stylesheet" href="callouts.css"><link rel="stylesheet" href="gadgets.css">
+  <title>DeltaMap 战术地图</title><link rel="icon" type="image/png" href="assets/app-icon.png"><link rel="stylesheet" href="styles.css"><link rel="stylesheet" href="marker-tools.css"><link rel="stylesheet" href="measure.css"><link rel="stylesheet" href="callouts.css"><link rel="stylesheet" href="gadgets.css"><link rel="stylesheet" href="collaboration.css">
 </head>
 <body>
 <div class="app-shell">
   <header class="topbar">
     <button class="icon-btn mobile-only" id="mapPanelButton" aria-label="地图列表" title="地图列表"><i data-lucide="panel-left"></i></button>
-    <a class="brand" href="#" aria-label="DeltaMap"><span class="brand-mark">Δ</span><span class="brand-copy"><b>DELTAMAP</b><small>战术地图 v1.1.0</small></span></a>
+    <a class="brand" href="#" aria-label="DeltaMap"><span class="brand-mark">Δ</span><span class="brand-copy"><b>DELTAMAP</b><small>战术地图 v1.2.0</small></span></a>
     <div class="topbar-divider"></div><div class="map-heading"><span class="mode-label">全面战场</span><strong id="currentMapTitle">攀升</strong></div>
     <div class="save-state" id="saveState" aria-live="polite"><span class="save-dot"></span><span>已保存</span></div>
     <div class="topbar-actions">
       <button class="icon-btn" id="undoButton" aria-label="撤销" title="撤销" disabled><i data-lucide="undo-2"></i></button>
       <button class="icon-btn" id="redoButton" aria-label="重做" title="重做" disabled><i data-lucide="redo-2"></i></button>
       <button class="icon-btn" id="clearButton" aria-label="清空标注" title="清空标注"><i data-lucide="trash-2"></i></button>
+      <button class="icon-btn collab-button" id="collabButton" aria-label="多人协作" title="多人协作"><i data-lucide="users-round"></i><span class="collab-indicator"></span></button>
       <div class="export-wrap"><button class="primary-btn" id="exportButton"><i data-lucide="download"></i><span>导出</span><i class="chevron" data-lucide="chevron-down"></i></button>
         <div class="menu" id="exportMenu" role="menu">
           <button role="menuitem" data-export="png"><i data-lucide="image"></i><span><b>导出当前视图</b><small>PNG 图片</small></span></button>
@@ -81,8 +82,29 @@
     <div class="text-editor callout-editor" id="calloutEditor"><input id="calloutInput" maxlength="24" autocomplete="off" placeholder="输入该区域的俗名"><button class="icon-btn" id="confirmCallout" aria-label="确认俗名"><i data-lucide="check"></i></button><button class="icon-btn" id="cancelCallout" aria-label="取消"><i data-lucide="x"></i></button></div>
   </div></main>
 </div>
+<div class="collab-backdrop" id="collabBackdrop"></div>
+<section class="collab-panel" id="collabPanel" aria-label="多人协作">
+  <header><div><small>REALTIME ROOM</small><h2>多人协作</h2></div><button class="icon-btn" id="closeCollab" aria-label="关闭"><i data-lucide="x"></i></button></header>
+  <div class="collab-setup" id="collabSetup">
+    <label>服务器地址<input id="collabServer" value="ws://localhost:8787" spellcheck="false"></label>
+    <label>你的名称<input id="collabName" maxlength="18" placeholder="输入队员名称"></label>
+    <button class="primary-btn collab-create" id="createRoom"><i data-lucide="plus"></i>创建协作房间</button>
+    <div class="collab-separator"><span>或加入房间</span></div>
+    <label>房间号<input id="collabRoom" maxlength="12" placeholder="例如 JDI-7A2F19BC" spellcheck="false"></label>
+    <div class="collab-role" id="collabRole"><button class="active" data-role="editor">编辑者</button><button data-role="observer">观察者</button></div>
+    <button class="secondary-btn" id="joinRoom"><i data-lucide="log-in"></i>加入房间</button>
+  </div>
+  <div class="collab-session" id="collabSession">
+    <div class="collab-room-head"><div><small>当前房间</small><b id="collabRoomCode">----</b></div><button class="icon-btn" id="copyRoom" title="复制房间号"><i data-lucide="copy"></i></button></div>
+    <div class="collab-status"><span id="collabStatusDot"></span><b id="collabStatusText">正在连接</b><small id="collabRoleText"></small></div>
+    <div class="collab-members-head"><span>在线成员</span><small id="collabMemberCount">0 / 10</small></div>
+    <div class="collab-members" id="collabMembers"></div>
+    <button class="secondary-btn collab-leave" id="leaveRoom"><i data-lucide="log-out"></i>离开房间</button>
+  </div>
+</section>
+<div class="remote-cursors" id="remoteCursors"></div>
 <div class="scrim" id="scrim"></div><div class="toast" id="toast" role="status"></div>
 <div class="dialog-backdrop" id="clearDialog"><div class="dialog" role="dialog" aria-modal="true" aria-labelledby="dialogTitle"><div class="dialog-icon"><i data-lucide="trash-2"></i></div><h2 id="dialogTitle">清空当前地图？</h2><p>当前地图上的所有标注将被删除。</p><div class="dialog-actions"><button class="secondary-btn" id="cancelClear">取消</button><button class="danger-btn" id="confirmClear">清空标注</button></div></div></div>
   <input type="file" id="fileInput" accept="application/json,.json" hidden>
-<script src="assets/lib/lucide.min.js"></script><script src="app.js"></script>
+<script src="assets/lib/lucide.min.js"></script><script src="app.js"></script><script src="collaboration.js"></script>
 </body></html>
