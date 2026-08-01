@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
   <meta name="theme-color" content="#10130f"><meta name="description" content="轻量化三角洲全面战场地图编辑器">
-  <title>DeltaMap 战术地图</title><link rel="stylesheet" href="styles.css"><link rel="stylesheet" href="marker-tools.css"><link rel="stylesheet" href="battle-timeline.css"><link rel="stylesheet" href="battle-review.css">
+  <title>DeltaMap 战术地图</title><link rel="stylesheet" href="styles.css"><link rel="stylesheet" href="marker-tools.css"><link rel="stylesheet" href="battle-timeline.css"><link rel="stylesheet" href="battle-review.css"><link rel="stylesheet" href="battle-toggle.css">
 </head>
 <body>
 <div class="app-shell">
@@ -16,6 +16,7 @@
       <button class="icon-btn" id="undoButton" aria-label="撤销" title="撤销" disabled><i data-lucide="undo-2"></i></button>
       <button class="icon-btn" id="redoButton" aria-label="重做" title="重做" disabled><i data-lucide="redo-2"></i></button>
       <button class="icon-btn" id="clearButton" aria-label="清空标注" title="清空标注"><i data-lucide="trash-2"></i></button>
+      <button class="icon-btn" id="battleToggle" aria-label="显示或隐藏复盘" title="隐藏复盘" aria-pressed="true"><i data-lucide="chart-no-axes-gantt"></i></button>
       <div class="export-wrap"><button class="primary-btn" id="exportButton"><i data-lucide="download"></i><span>导出</span><i class="chevron" data-lucide="chevron-down"></i></button>
         <div class="menu" id="exportMenu" role="menu">
           <button role="menuitem" data-export="png"><i data-lucide="image"></i><span><b>导出当前视图</b><small>PNG 图片</small></span></button>

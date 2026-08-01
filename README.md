@@ -61,7 +61,9 @@ release\DeltaMap.exe
 
 地图底部复盘条不再内置比赛数据。点击“导入”选择 `deltamap-force-review/v1` JSON 后，可以切换回合并拖动进度条，查看视频顶部显示的双方兵力数字和据点方块状态。方块填充高度表示 `progress` 占领百分比，颜色表示当前占领方。
 
-点击“清除”会删除当前复盘及浏览器本地保存的数据。示例文件位于 [`reviews/SEA-vs-JDI-断轨.json`](reviews/SEA-vs-JDI-断轨.json)。现有 storyboard 分辨率不足以可靠读取顶部兵力数字，因此示例中暂用 `--`，不虚构数值；取得清晰局部帧后可直接补充 `attackForce` 和 `defenseForce`。
+顶栏时间轴按钮可以显示或隐藏整个复盘条，避免遮挡地图，并会记住显示状态。点击“清除”会删除当前复盘及浏览器本地保存的数据。
+
+JSON 格式示例见 [`reviews/README.md`](reviews/README.md)。导入和启动时都会自动丢弃 `attackForce` 或 `defenseForce` 不是明确数字的节点；如果兵力被遮挡或无法辨认，该抽帧记录不会进入进度条。
 
 战术视频来源关注列表保存在 [`sources/bilibili-watchlist.json`](sources/bilibili-watchlist.json)，当前关注“索菲亚堂主直播回放”和“天堂的手比赛解说”。
 
