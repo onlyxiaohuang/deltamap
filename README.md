@@ -63,6 +63,8 @@ release\DeltaMap.exe
 
 本场严格拆成两份独立 JSON：[`SEA-vs-JDI-断轨-R1.json`](plans/SEA-vs-JDI-断轨-R1.json) 是第一轮 SEA 进攻、JDI 防守并在 C 区守胜；[`SEA-vs-JDI-断轨-R2.json`](plans/SEA-vs-JDI-断轨-R2.json) 是第二轮换边后 JDI 进攻、SEA 防守。每个复盘节点同时保存回合内相对时间 `time` 和原视频比赛时间 `videoTime`，回合还保存 `videoStartSecond`、`videoEndSecond` 与 `durationSeconds`。
 
+两份方案已经包含根据 B 站 storyboard 全景抽帧生成的兵力分布快照。快照中的小人表示画面上可辨认的步兵集群，不代表精确的一名玩家；载具位置同样是导播视角下的地图坐标估算。每个节点带有 `confidence`，使用时应结合原视频时间复核。
+
 同目录还提供本场的[详细中文复盘](plans/SEA-vs-JDI-断轨-详细复盘.md)、[结构化分析数据](plans/SEA-vs-JDI-断轨-详细复盘.json)和可复用于其他比赛的 [JSON Schema](plans/analysis-schema.json)。分析统一记录阶段时间、主攻/次攻方向、人员移动、载具移动、防守结构、转折点和置信度，便于批量积累不同地图与队伍的战术样本。
 
 导入方法：打开 DeltaMap，点击右上角“导出” -> “导入战术文件”，选择对应的 JSON 文件。
