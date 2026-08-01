@@ -3,13 +3,13 @@
 <head>
   <meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
   <meta name="theme-color" content="#10130f"><meta name="description" content="轻量化三角洲全面战场地图编辑器">
-  <title>DeltaMap 战术地图</title><link rel="stylesheet" href="styles.css"><link rel="stylesheet" href="marker-tools.css"><link rel="stylesheet" href="measure.css">
+  <title>DeltaMap 战术地图</title><link rel="stylesheet" href="styles.css"><link rel="stylesheet" href="marker-tools.css"><link rel="stylesheet" href="measure.css"><link rel="stylesheet" href="callouts.css"><link rel="stylesheet" href="gadgets.css">
 </head>
 <body>
 <div class="app-shell">
   <header class="topbar">
     <button class="icon-btn mobile-only" id="mapPanelButton" aria-label="地图列表" title="地图列表"><i data-lucide="panel-left"></i></button>
-    <a class="brand" href="#" aria-label="DeltaMap"><span class="brand-mark">Δ</span><span class="brand-copy"><b>DELTAMAP</b><small>战术地图</small></span></a>
+    <a class="brand" href="#" aria-label="DeltaMap"><span class="brand-mark">Δ</span><span class="brand-copy"><b>DELTAMAP</b><small>战术地图 v1.1.0</small></span></a>
     <div class="topbar-divider"></div><div class="map-heading"><span class="mode-label">全面战场</span><strong id="currentMapTitle">攀升</strong></div>
     <div class="save-state" id="saveState" aria-live="polite"><span class="save-dot"></span><span>已保存</span></div>
     <div class="topbar-actions">
@@ -30,6 +30,7 @@
     <div class="side-tabs" role="tablist">
       <button class="active" data-panel-tab="maps" role="tab" aria-selected="true"><i data-lucide="map"></i><span>地图</span></button>
       <button data-panel-tab="layers" role="tab" aria-selected="false"><i data-lucide="layers-3"></i><span>图层</span></button>
+      <button data-panel-tab="callouts" role="tab" aria-selected="false"><i data-lucide="tags"></i><span>俗名</span></button>
     </div>
     <div class="mode-switch" id="modeSwitch"><button class="active" data-mode="attack">攻防</button><button data-mode="occupy">占领</button></div>
     <div class="stage-switch" id="stageSwitch">
@@ -43,6 +44,11 @@
       <div class="layer-list" id="layerList"></div>
       <div class="layer-source"><i data-lucide="radio-tower"></i><span>官方全面战场点位</span></div>
     </div>
+    <div class="panel-pane" data-panel-pane="callouts">
+      <div class="callout-help">选择画布上的俗名工具，自由拖动描出范围</div>
+      <div class="callout-bulk"><button id="toggleAllCalloutAreas">关闭全部范围</button><button id="toggleAllCalloutNames">关闭全部名称</button><button class="callout-bulk-all" id="toggleAllCallouts">关闭所有俗名</button></div>
+      <div class="callout-list" id="calloutList"></div>
+    </div>
     <div class="panel-footer"><span class="online-dot"></span><div><b>JDI出品，欢迎各路大神加入JDI。</b><small>本地自动保存，数据仅存于此浏览器</small><a href="https://github.com/onlyxiaohuang/deltamap" target="_blank" rel="noopener">onlyxiaohuang/deltamap · 求个 Star</a></div></div>
   </aside>
   <main class="workspace"><div class="canvas-wrap" id="canvasWrap">
@@ -53,15 +59,18 @@
       <button class="tool-btn" data-tool="pen" aria-label="画笔" title="画笔"><i data-lucide="pencil"></i></button>
       <button class="tool-btn" data-tool="line" aria-label="直线" title="直线"><i data-lucide="minus"></i></button>
       <button class="tool-btn" data-tool="arrow" aria-label="箭头" title="箭头"><i data-lucide="move-up-right"></i></button>
-      <button class="tool-btn" data-tool="measure" aria-label="测量距离" title="测量距离"><i data-lucide="ruler"></i></button>
+      <button class="tool-btn measure-tool" data-tool="measure" aria-label="测量水平距离" title="测量地图平面上的水平距离"><i data-lucide="ruler"></i><span>水平</span></button>
       <button class="tool-btn" data-tool="rect" aria-label="矩形" title="矩形"><i data-lucide="square"></i></button>
       <button class="tool-btn" data-tool="circle" aria-label="圆形" title="圆形"><i data-lucide="circle"></i></button>
+      <button class="tool-btn" data-tool="callout" aria-label="圈定俗名" title="圈定俗名范围"><i data-lucide="tags"></i></button>
       <button class="tool-btn" data-tool="marker" aria-label="标记点" title="标记点"><i data-lucide="map-pin"></i></button>
       <button class="tool-btn" data-tool="unit" aria-label="载具与人员" title="载具与人员"><i data-lucide="truck"></i></button>
+      <button class="tool-btn" data-tool="gadget" aria-label="干员道具" title="干员道具"><i data-lucide="scan-line"></i></button>
       <button class="tool-btn" data-tool="text" aria-label="文字" title="文字"><i data-lucide="type"></i></button><span class="rail-divider"></span>
       <button class="tool-btn" data-tool="eraser" aria-label="橡皮擦" title="橡皮擦"><i data-lucide="eraser"></i></button>
     </div>
     <div class="unit-palette" id="unitPalette" aria-label="载具与人员标记"></div>
+    <div class="unit-palette gadget-palette" id="gadgetPalette" aria-label="干员道具"></div>
     <div class="style-bar"><div class="color-row" id="colorRow" aria-label="颜色"></div><span class="style-divider"></span><div class="width-control" id="widthControl" aria-label="线宽">
       <button data-width="2" aria-label="细线" title="细线"><span style="height:2px"></span></button><button class="active" data-width="5" aria-label="中线" title="中线"><span style="height:5px"></span></button><button data-width="9" aria-label="粗线" title="粗线"><span style="height:9px"></span></button>
     </div></div>
@@ -69,6 +78,7 @@
     <div class="map-meta"><span id="zoomLabel">100%</span><span class="meta-separator"></span><span id="objectCount">0 个标注</span></div>
     <div class="poi-tooltip" id="poiTooltip"><img alt=""><span><b></b><small></small></span></div>
     <div class="text-editor" id="textEditor"><input id="textInput" maxlength="32" autocomplete="off" placeholder="输入标注文字"><button class="icon-btn" id="confirmText" aria-label="确认"><i data-lucide="check"></i></button></div>
+    <div class="text-editor callout-editor" id="calloutEditor"><input id="calloutInput" maxlength="24" autocomplete="off" placeholder="输入该区域的俗名"><button class="icon-btn" id="confirmCallout" aria-label="确认俗名"><i data-lucide="check"></i></button><button class="icon-btn" id="cancelCallout" aria-label="取消"><i data-lucide="x"></i></button></div>
   </div></main>
 </div>
 <div class="scrim" id="scrim"></div><div class="toast" id="toast" role="status"></div>

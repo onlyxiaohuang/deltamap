@@ -1,0 +1,4 @@
+.gadget-palette{--unit-color:#d5f249}
+.gadget-option-icon{width:27px;height:27px;display:grid;place-items:center;color:var(--unit-color)}
+.gadget-option-icon svg{width:23px;height:23px;stroke-width:1.8}
+#drawCanvas[data-tool=gadget]{cursor:crosshair}

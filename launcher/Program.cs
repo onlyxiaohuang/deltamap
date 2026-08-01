@@ -4,6 +4,13 @@ using System.IO;
 using System.IO.Compression;
 using System.Reflection;
 
+[assembly: AssemblyTitle("DeltaMap")]
+[assembly: AssemblyProduct("DeltaMap 战术地图")]
+[assembly: AssemblyDescription("轻量化三角洲全面战场地图编辑工具")]
+[assembly: AssemblyCompany("JDI")]
+[assembly: AssemblyVersion("1.1.0.0")]
+[assembly: AssemblyFileVersion("1.1.0.0")]
+
 internal static class Program
 {
     [STAThread]
