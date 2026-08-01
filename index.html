@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
   <meta name="theme-color" content="#10130f"><meta name="description" content="轻量化三角洲全面战场地图编辑器">
-  <title>DeltaMap 战术地图</title><link rel="stylesheet" href="styles.css"><link rel="stylesheet" href="marker-tools.css"><link rel="stylesheet" href="battle-timeline.css"><link rel="stylesheet" href="battle-review.css"><link rel="stylesheet" href="battle-toggle.css"><link rel="stylesheet" href="related-matches.css">
+  <title>DeltaMap 战术地图</title><link rel="stylesheet" href="styles.css"><link rel="stylesheet" href="marker-tools.css"><link rel="stylesheet" href="battle-timeline.css"><link rel="stylesheet" href="battle-review.css"><link rel="stylesheet" href="battle-toggle.css">
 </head>
 <body>
 <div class="app-shell">
@@ -31,7 +31,6 @@
     <div class="side-tabs" role="tablist">
       <button class="active" data-panel-tab="maps" role="tab" aria-selected="true"><i data-lucide="map"></i><span>地图</span></button>
       <button data-panel-tab="layers" role="tab" aria-selected="false"><i data-lucide="layers-3"></i><span>图层</span></button>
-      <button data-panel-tab="matches" role="tab" aria-selected="false"><i data-lucide="list-video"></i><span>对局</span></button>
     </div>
     <div class="mode-switch" id="modeSwitch"><button class="active" data-mode="attack">攻防</button><button data-mode="occupy">占领</button></div>
     <div class="stage-switch" id="stageSwitch">
@@ -44,11 +43,6 @@
       <div class="layer-actions"><span id="layerSummary">载入点位数据</span><button id="toggleAllLayers">全部显示</button></div>
       <div class="layer-list" id="layerList"></div>
       <div class="layer-source"><i data-lucide="radio-tower"></i><span>官方全面战场点位</span></div>
-    </div>
-    <div class="panel-pane match-pane" data-panel-pane="matches">
-      <div class="match-filter"><i data-lucide="search"></i><input id="matchSearch" placeholder="搜索队名"></div>
-      <div class="match-team-list" id="matchTeamList"></div>
-      <div class="related-match-list" id="relatedMatchList"></div>
     </div>
     <div class="panel-footer"><span class="online-dot"></span><div><b>JDI出品，欢迎各路大神加入JDI。</b><small>本地自动保存，数据仅存于此浏览器</small><a href="https://github.com/onlyxiaohuang/deltamap" target="_blank" rel="noopener">onlyxiaohuang/deltamap · 求个 Star</a></div></div>
   </aside>
@@ -86,5 +80,5 @@
 <div class="dialog-backdrop" id="clearDialog"><div class="dialog" role="dialog" aria-modal="true" aria-labelledby="dialogTitle"><div class="dialog-icon"><i data-lucide="trash-2"></i></div><h2 id="dialogTitle">清空当前地图？</h2><p>当前地图上的所有标注将被删除。</p><div class="dialog-actions"><button class="secondary-btn" id="cancelClear">取消</button><button class="danger-btn" id="confirmClear">清空标注</button></div></div></div>
   <input type="file" id="fileInput" accept="application/json,.json" hidden>
   <input type="file" id="battleReviewFile" accept="application/json,.json" hidden>
-<script src="assets/lib/lucide.min.js"></script><script src="sources/related-matches.js"></script><script src="related-matches.js"></script><script src="battle-timeline.js"></script><script src="app.js"></script>
+<script src="assets/lib/lucide.min.js"></script><script src="battle-timeline.js"></script><script src="app.js"></script>
 </body></html>
