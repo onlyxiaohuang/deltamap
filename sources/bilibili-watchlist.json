@@ -1,0 +1,39 @@
+{
+  "schema": "deltamap-tactical-sources/v1",
+  "updatedAt": "2026-08-01",
+  "platform": "bilibili",
+  "purpose": "全面战场赛事复盘与战术部署素材来源",
+  "accounts": [
+    {
+      "mid": "3632320479234568",
+      "name": "索菲亚堂主直播回放",
+      "url": "https://space.bilibili.com/3632320479234568",
+      "type": "赛事直播回放",
+      "priority": "high",
+      "enabled": true,
+      "notes": "适合从完整赛事导播画面提取地图、攻守关系、阶段推进和全局交火重心。"
+    },
+    {
+      "mid": "3546610380311501",
+      "name": "天堂的手比赛解说",
+      "url": "https://space.bilibili.com/3546610380311501",
+      "type": "大战场比赛OB解说",
+      "priority": "high",
+      "enabled": true,
+      "notes": "适合结合OB画面与解说标题筛选战术价值较高的比赛。"
+    }
+  ],
+  "analysisPolicy": {
+    "method": "storyboard-random-sampling",
+    "defaultSampleCount": 24,
+    "downloadFullVideo": false,
+    "preferredSignals": [
+      "开局地图与双方阵营",
+      "据点阶段切换",
+      "全局航拍中的兵力分布",
+      "载具推进路线",
+      "防守纵深与固定火力位置",
+      "回合结算与换边关系"
+    ]
+  }
+}

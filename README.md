@@ -62,6 +62,16 @@ release\DeltaMap.exe
 
 导入方法：打开 DeltaMap，点击右上角“导出” -> “导入战术文件”，选择对应的 JSON 文件。
 
+战术视频来源关注列表保存在 [`sources/bilibili-watchlist.json`](sources/bilibili-watchlist.json)，当前关注“索菲亚堂主直播回放”和“天堂的手比赛解说”。
+
+无需下载完整视频即可随机抽取 B 站预览帧：
+
+```powershell
+powershell -ExecutionPolicy Bypass -File .\tools\sample-bilibili-storyboard.ps1 -Bvid BV1QxGM66EJN -SampleCount 24
+```
+
+脚本只下载随机帧所在的预览拼图，输出独立 JPG 和带时间点的 `manifest.json`，不会下载完整视频。
+
 ## 数据说明
 
 战术标注默认保存在浏览器本地存储中。更换电脑、清理浏览器数据或重装系统前，请先导出 JSON 战术文件。
