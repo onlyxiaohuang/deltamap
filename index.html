@@ -53,6 +53,13 @@
       <div class="review-video-time">
         <label><span>比赛开始时间</span><input id="reviewVideoStart" maxlength="8" placeholder="02:30"></label>
         <label><span>比赛结束时间</span><input id="reviewVideoEnd" maxlength="8" placeholder="39:35"></label>
+        <label><span>攻方颜色</span><input id="reviewAttackColor" type="color" value="#42a5ff"></label>
+        <label><span>守方颜色</span><input id="reviewDefenseColor" type="color" value="#ffb43b"></label>
+      </div>
+      <div class="review-player">
+        <div class="review-section-title"><span>兵力分布进度</span><small id="reviewPlayTime">00:00</small></div>
+        <input id="reviewScrubber" type="range" min="0" max="1" value="0" step="1">
+        <div class="review-player-actions"><span id="reviewActivePoint">尚无分布快照</span><button id="exitReviewPlayback"><i data-lucide="square"></i>退出播放</button></div>
       </div>
       <div class="review-entry">
         <div class="review-section-title"><span>新建时间节点</span><small id="reviewTimeLabel">00:00</small></div>
@@ -61,13 +68,8 @@
           <label><span>秒</span><input id="reviewSecond" type="number" min="0" max="59" value="0"></label>
           <label><span>据点</span><input id="reviewStage" maxlength="8" placeholder="A / B1"></label>
         </div>
-        <div class="review-force-grid">
-          <span></span><b>步兵</b><b>载具</b>
-          <strong class="attack-force">攻方</strong><input id="reviewAttackInfantry" type="number" min="0" value="0"><input id="reviewAttackVehicles" type="number" min="0" value="0">
-          <strong class="defense-force">守方</strong><input id="reviewDefenseInfantry" type="number" min="0" value="0"><input id="reviewDefenseVehicles" type="number" min="0" value="0">
-        </div>
         <textarea id="reviewNote" maxlength="160" rows="2" placeholder="主攻方向、载具路线或关键事件"></textarea>
-        <button class="review-add" id="addReviewPoint"><i data-lucide="plus"></i><span>添加时间节点</span></button>
+        <button class="review-add" id="addReviewPoint"><i data-lucide="camera"></i><span>保存当前兵力分布</span></button>
       </div>
       <div class="review-section-title review-timeline-title"><span>兵力变化时间线</span><small id="reviewCount">0 个节点</small></div>
       <div class="review-timeline" id="reviewTimeline"></div>
