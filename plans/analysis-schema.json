@@ -1,0 +1,66 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/onlyxiaohuang/deltamap/plans/analysis-schema.json",
+  "title": "DeltaMap match analysis v1",
+  "type": "object",
+  "required": ["schema", "source", "match", "rounds"],
+  "properties": {
+    "schema": { "const": "deltamap-match-analysis/v1" },
+    "source": {
+      "type": "object",
+      "required": ["platform", "url", "samplingMethod"],
+      "properties": {
+        "platform": { "type": "string" },
+        "bvid": { "type": "string" },
+        "url": { "type": "string", "format": "uri" },
+        "samplingMethod": { "type": "string" },
+        "limitations": { "type": "array", "items": { "type": "string" } }
+      }
+    },
+    "match": {
+      "type": "object",
+      "required": ["title", "map", "teams"],
+      "properties": {
+        "title": { "type": "string" },
+        "map": { "type": "string" },
+        "teams": { "type": "array", "minItems": 2, "items": { "type": "string" } }
+      }
+    },
+    "rounds": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["round", "attack", "defense", "videoStartSecond", "videoEndSecond", "phases"],
+        "properties": {
+          "round": { "type": "integer", "minimum": 1 },
+          "attack": { "type": "string" },
+          "defense": { "type": "string" },
+          "videoStartSecond": { "type": "integer", "minimum": 0 },
+          "videoEndSecond": { "type": "integer", "minimum": 0 },
+          "phases": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "required": ["objective", "videoStartSecond", "videoEndSecond", "mainAttackAxis", "infantryMovement", "vehicleMovement", "confidence"],
+              "properties": {
+                "objective": { "type": "string" },
+                "videoStartSecond": { "type": "integer" },
+                "videoEndSecond": { "type": "integer" },
+                "roundElapsedStartSecond": { "type": "integer" },
+                "roundElapsedEndSecond": { "type": "integer" },
+                "durationSeconds": { "type": "integer" },
+                "mainAttackAxis": { "type": "string" },
+                "secondaryAxis": { "type": "string" },
+                "infantryMovement": { "type": "array", "items": { "type": "string" } },
+                "vehicleMovement": { "type": "array", "items": { "type": "string" } },
+                "defenseStructure": { "type": "array", "items": { "type": "string" } },
+                "turningPoints": { "type": "array", "items": { "type": "string" } },
+                "confidence": { "enum": ["low", "medium", "high"] }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

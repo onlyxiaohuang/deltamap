@@ -1,0 +1,161 @@
+{
+  "schema": "deltamap-match-analysis/v1",
+  "source": {
+    "platform": "bilibili",
+    "bvid": "BV1QxGM66EJN",
+    "url": "https://www.bilibili.com/video/BV1QxGM66EJN/",
+    "samplingMethod": "官方 storyboard 约每 5 秒一帧，结合导播全景、据点状态与比分画面人工复盘",
+    "limitations": [
+      "没有公开字幕、服务器事件日志或完整自由视角",
+      "阶段时间为导播画面估算，误差通常约 15 至 60 秒",
+      "图标尺寸不足以稳定识别每一种具体载具型号，因此只在证据充分时写车型"
+    ]
+  },
+  "match": {
+    "title": "百姓杯全民赛：SEA 战队 vs JDI 战队",
+    "map": "断轨",
+    "teams": ["SEA", "JDI"]
+  },
+  "rounds": [
+    {
+      "round": 1,
+      "attack": "SEA",
+      "defense": "JDI",
+      "result": "JDI 防守成功",
+      "videoStartSecond": 150,
+      "videoEndSecond": 2375,
+      "phases": [
+        {
+          "objective": "A",
+          "videoStartSecond": 150,
+          "videoEndSecond": 510,
+          "roundElapsedStartSecond": 0,
+          "roundElapsedEndSecond": 360,
+          "durationSeconds": 360,
+          "mainAttackAxis": "东南出生区沿施工道路直压吊塔和 A 点核心",
+          "secondaryAxis": "北侧土坡与南侧掩体绕入，拉开守方点内朝向",
+          "infantryMovement": ["主力在吊塔和施工建筑间连续补人", "机动组从两侧高差切入，尝试与正面同步进点"],
+          "vehicleMovement": ["装甲从东南道路前推，在施工区外缘提供直射压制", "载具没有单独深插，主要掩护步兵跨越开阔地"],
+          "defenseStructure": ["JDI 以点内掩体为第一线，建筑和后坡作为复活、回补与反推支点"],
+          "turningPoints": ["SEA 建立多入口接触，但未能立刻切断 JDI 后坡回补"],
+          "confidence": "medium"
+        },
+        {
+          "objective": "B1",
+          "videoStartSecond": 510,
+          "videoEndSecond": 1260,
+          "roundElapsedStartSecond": 360,
+          "roundElapsedEndSecond": 1110,
+          "durationSeconds": 750,
+          "mainAttackAxis": "从 A 区沿东侧道路和红桥接近 B1",
+          "secondaryAxis": "北侧岩坡抢高点，再向桥头和点后侧压下",
+          "infantryMovement": ["正面组在桥头持续换血", "侧翼组沿岩坡展开，试图获得桥面和道路侧射角"],
+          "vehicleMovement": ["装甲沿道路跟随推进，在桥头前后反复探身压制", "车辆受狭窄通道和高处火力限制，难以直接冲入据点"],
+          "defenseStructure": ["JDI 把桥头、岩坡和后方建筑串成纵深，失去前沿后仍可短距离反推"],
+          "turningPoints": ["交火重心长时间停留在红桥两端，成为第一局耗时最长的阶段"],
+          "confidence": "medium"
+        },
+        {
+          "objective": "C1/C2",
+          "videoStartSecond": 1260,
+          "videoEndSecond": 1800,
+          "roundElapsedStartSecond": 1110,
+          "roundElapsedEndSecond": 1650,
+          "durationSeconds": 540,
+          "mainAttackAxis": "沿管线与厂房通道向 C1 正面施压",
+          "secondaryAxis": "分兵穿越北侧建筑和高差，牵制 C2 与两点之间的预备队",
+          "infantryMovement": ["SEA 由单一桥头队形改为双点分组", "占领外围屋顶和管线附近后再向点内收缩"],
+          "vehicleMovement": ["车辆沿厂区外侧较宽道路移动，避免进入管线密集的步兵杀伤区", "火力重点转向压制两点之间的增援线"],
+          "defenseStructure": ["JDI 在 C1/C2 之间保留机动力量，按受压方向横向补防"],
+          "turningPoints": ["攻击方通过双点拉扯减少了单路拥堵，但推进速度仍受厂房交叉火力限制"],
+          "confidence": "medium"
+        },
+        {
+          "objective": "D1/D2",
+          "videoStartSecond": 1800,
+          "videoEndSecond": 2375,
+          "roundElapsedStartSecond": 1650,
+          "roundElapsedEndSecond": 2225,
+          "durationSeconds": 575,
+          "mainAttackAxis": "从中央厂区沿铁路和道路向 D1 展开",
+          "secondaryAxis": "南侧低地转向 D2，迫使守方在终局双点间分兵",
+          "infantryMovement": ["SEA 先清外围屋顶、坡面和厂房入口，再尝试双点同时施压", "JDI 退入终局纵深后以短距离反推反复中断占领"],
+          "vehicleMovement": ["进攻载具在厂区外缘和铁路附近提供远距离火力", "复杂建筑遮挡使车辆难以代替步兵完成点内清场"],
+          "defenseStructure": ["JDI 依靠 D1/D2 双点互援和后方复活纵深拖延票数，最终守住回合"],
+          "turningPoints": ["SEA 未能同时切断两个据点的回补路线，终局推进被持续重置"],
+          "confidence": "medium"
+        }
+      ]
+    },
+    {
+      "round": 2,
+      "attack": "JDI",
+      "defense": "SEA",
+      "result": "SEA 防守成功",
+      "videoStartSecond": 2850,
+      "videoEndSecond": 4375,
+      "phases": [
+        {
+          "objective": "A",
+          "videoStartSecond": 2850,
+          "videoEndSecond": 3180,
+          "roundElapsedStartSecond": 0,
+          "roundElapsedEndSecond": 330,
+          "durationSeconds": 330,
+          "mainAttackAxis": "JDI 从东南道路正面进入施工区，以吊塔和中央建筑为推进基准",
+          "secondaryAxis": "人员散到两侧土坡，形成对 A 点的扇形包夹",
+          "infantryMovement": ["正面密集接触后，两翼人员同步靠近点区", "SEA 在施工建筑间分层后撤并持续反推"],
+          "vehicleMovement": ["车辆沿施工道路前压，停留在能覆盖开阔区的位置", "步兵先清近点掩体，载具没有盲目越过建筑群"],
+          "defenseStructure": ["SEA 利用施工区建筑和高低差延缓第一波，但 JDI 持续保持多入口压力"],
+          "turningPoints": ["JDI 较快把战线推过施工区，给后续阶段保留了更多时间"],
+          "confidence": "medium"
+        },
+        {
+          "objective": "B1",
+          "videoStartSecond": 3180,
+          "videoEndSecond": 3420,
+          "roundElapsedStartSecond": 330,
+          "roundElapsedEndSecond": 570,
+          "durationSeconds": 240,
+          "mainAttackAxis": "沿红桥与铁路方向快速承接推进",
+          "secondaryAxis": "岩坡人员从高处观察并压制桥头侧后方",
+          "infantryMovement": ["桥面和道路组吸引正面火力", "岩坡组保持横向展开，防止全队堵在桥口"],
+          "vehicleMovement": ["装甲顺道路跟进至桥区，承担远距离压制", "车辆与步兵保持一段距离，避免在桥头同时被封锁"],
+          "defenseStructure": ["SEA 在桥后和岩坡形成交叉火力，但回合二的 B1 对峙明显短于第一局"],
+          "turningPoints": ["JDI 保持 A 区后的推进连续性，没有在桥头停留过久"],
+          "confidence": "medium"
+        },
+        {
+          "objective": "C1/C2",
+          "videoStartSecond": 3420,
+          "videoEndSecond": 3840,
+          "roundElapsedStartSecond": 570,
+          "roundElapsedEndSecond": 990,
+          "durationSeconds": 420,
+          "mainAttackAxis": "从东侧入口进入管线厂房，重点压 C1 和两点连接区",
+          "secondaryAxis": "北侧建筑、坡面与管线后方人员牵制 C2",
+          "infantryMovement": ["JDI 在厂房正面持续补人，同时让侧翼绕过管线", "SEA 以建筑拐角和点间机动进行局部反推"],
+          "vehicleMovement": ["载具留在厂区外道路和开阔射界，压制点间增援", "进入厂房内部的清点任务主要由步兵承担"],
+          "defenseStructure": ["SEA 利用两点间短转场补防，优先守住连接区而非平均铺开"],
+          "turningPoints": ["JDI 成功把正面压力转换成双点拉扯，战线继续西移"],
+          "confidence": "medium"
+        },
+        {
+          "objective": "D1/D2",
+          "videoStartSecond": 3840,
+          "videoEndSecond": 4375,
+          "roundElapsedStartSecond": 990,
+          "roundElapsedEndSecond": 1525,
+          "durationSeconds": 535,
+          "mainAttackAxis": "沿铁路和中央道路冲击 D1 外围",
+          "secondaryAxis": "南北坡面人员展开，寻找 D2 及终局侧后的进入角度",
+          "infantryMovement": ["JDI 先抢铁路、坡地和外圈掩体，再向终局建筑收缩", "SEA 退守双点纵深，通过点内复活与侧面反推延缓占领"],
+          "vehicleMovement": ["装甲沿铁路和开阔地保持火力支援", "终局建筑和坡面遮挡削弱车辆对点内的直接控制"],
+          "defenseStructure": ["SEA 在 D1/D2 之间保留互援，利用进攻方进点后的暴露窗口反推"],
+          "turningPoints": ["JDI 已推进到终局区域，但未在回合结束前完成双点清场，SEA 守住第二局"],
+          "confidence": "medium"
+        }
+      ]
+    }
+  ]
+}
