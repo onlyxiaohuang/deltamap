@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
   <meta name="theme-color" content="#10130f"><meta name="description" content="轻量化三角洲全面战场地图编辑器">
-  <title>DeltaMap 战术地图</title><link rel="stylesheet" href="styles.css"><link rel="stylesheet" href="marker-tools.css"><link rel="stylesheet" href="review.css"><link rel="stylesheet" href="review-time.css">
+  <title>DeltaMap 战术地图</title><link rel="stylesheet" href="styles.css"><link rel="stylesheet" href="marker-tools.css"><link rel="stylesheet" href="battle-timeline.css">
 </head>
 <body>
 <div class="app-shell">
@@ -30,7 +30,6 @@
     <div class="side-tabs" role="tablist">
       <button class="active" data-panel-tab="maps" role="tab" aria-selected="true"><i data-lucide="map"></i><span>地图</span></button>
       <button data-panel-tab="layers" role="tab" aria-selected="false"><i data-lucide="layers-3"></i><span>图层</span></button>
-      <button data-panel-tab="review" role="tab" aria-selected="false"><i data-lucide="chart-no-axes-combined"></i><span>复盘</span></button>
     </div>
     <div class="mode-switch" id="modeSwitch"><button class="active" data-mode="attack">攻防</button><button data-mode="occupy">占领</button></div>
     <div class="stage-switch" id="stageSwitch">
@@ -43,36 +42,6 @@
       <div class="layer-actions"><span id="layerSummary">载入点位数据</span><button id="toggleAllLayers">全部显示</button></div>
       <div class="layer-list" id="layerList"></div>
       <div class="layer-source"><i data-lucide="radio-tower"></i><span>官方全面战场点位</span></div>
-    </div>
-    <div class="panel-pane review-pane" data-panel-pane="review">
-      <div class="review-match">
-        <label><span>回合</span><input id="reviewRound" type="number" min="1" value="1"></label>
-        <label><span>进攻方</span><input id="reviewAttack" maxlength="12" placeholder="进攻方"></label>
-        <label><span>防守方</span><input id="reviewDefense" maxlength="12" placeholder="防守方"></label>
-      </div>
-      <div class="review-video-time">
-        <label><span>比赛开始时间</span><input id="reviewVideoStart" maxlength="8" placeholder="02:30"></label>
-        <label><span>比赛结束时间</span><input id="reviewVideoEnd" maxlength="8" placeholder="39:35"></label>
-        <label><span>攻方颜色</span><input id="reviewAttackColor" type="color" value="#42a5ff"></label>
-        <label><span>守方颜色</span><input id="reviewDefenseColor" type="color" value="#ffb43b"></label>
-      </div>
-      <div class="review-player">
-        <div class="review-section-title"><span>兵力分布进度</span><small id="reviewPlayTime">00:00</small></div>
-        <input id="reviewScrubber" type="range" min="0" max="1" value="0" step="1">
-        <div class="review-player-actions"><span id="reviewActivePoint">尚无分布快照</span><button id="exitReviewPlayback"><i data-lucide="square"></i>退出播放</button></div>
-      </div>
-      <div class="review-entry">
-        <div class="review-section-title"><span>新建时间节点</span><small id="reviewTimeLabel">00:00</small></div>
-        <div class="review-time-fields">
-          <label><span>分钟</span><input id="reviewMinute" type="number" min="0" max="99" value="0"></label>
-          <label><span>秒</span><input id="reviewSecond" type="number" min="0" max="59" value="0"></label>
-          <label><span>据点</span><input id="reviewStage" maxlength="8" placeholder="A / B1"></label>
-        </div>
-        <textarea id="reviewNote" maxlength="160" rows="2" placeholder="主攻方向、载具路线或关键事件"></textarea>
-        <button class="review-add" id="addReviewPoint"><i data-lucide="camera"></i><span>保存当前兵力分布</span></button>
-      </div>
-      <div class="review-section-title review-timeline-title"><span>兵力变化时间线</span><small id="reviewCount">0 个节点</small></div>
-      <div class="review-timeline" id="reviewTimeline"></div>
     </div>
     <div class="panel-footer"><span class="online-dot"></span><div><b>JDI出品，欢迎各路大神加入JDI。</b><small>本地自动保存，数据仅存于此浏览器</small><a href="https://github.com/onlyxiaohuang/deltamap" target="_blank" rel="noopener">onlyxiaohuang/deltamap · 求个 Star</a></div></div>
   </aside>
@@ -99,10 +68,15 @@
     <div class="map-meta"><span id="zoomLabel">100%</span><span class="meta-separator"></span><span id="objectCount">0 个标注</span></div>
     <div class="poi-tooltip" id="poiTooltip"><img alt=""><span><b></b><small></small></span></div>
     <div class="text-editor" id="textEditor"><input id="textInput" maxlength="32" autocomplete="off" placeholder="输入标注文字"><button class="icon-btn" id="confirmText" aria-label="确认"><i data-lucide="check"></i></button></div>
+    <section class="battle-timeline" id="battleTimeline">
+      <div class="battle-head"><div class="battle-rounds" id="battleRounds"></div><strong class="battle-summary" id="battleSummary"></strong><span class="battle-clock" id="battleClock"></span></div>
+      <input id="battleScrubber" type="range" min="0" max="1" value="0" step="1" aria-label="战线时间进度">
+      <div class="battle-stats"><span class="battle-side attack" id="battleAttackStats"></span><span class="battle-side defense" id="battleDefenseStats"></span><span class="battle-source">抽帧估算</span></div>
+    </section>
   </div></main>
 </div>
 <div class="scrim" id="scrim"></div><div class="toast" id="toast" role="status"></div>
 <div class="dialog-backdrop" id="clearDialog"><div class="dialog" role="dialog" aria-modal="true" aria-labelledby="dialogTitle"><div class="dialog-icon"><i data-lucide="trash-2"></i></div><h2 id="dialogTitle">清空当前地图？</h2><p>当前地图上的所有标注将被删除。</p><div class="dialog-actions"><button class="secondary-btn" id="cancelClear">取消</button><button class="danger-btn" id="confirmClear">清空标注</button></div></div></div>
 <input type="file" id="fileInput" accept="application/json,.json" hidden>
-<script src="assets/lib/lucide.min.js"></script><script src="app.js"></script>
+<script src="assets/lib/lucide.min.js"></script><script src="battle-timeline.js"></script><script src="app.js"></script>
 </body></html>

@@ -1,0 +1,14 @@
+window.DELTAMAP_BATTLE={source:"BV1QxGM66EJN storyboard（约每 5 秒一帧）",map:"dg",rounds:[
+{round:1,attack:"SEA",defense:"JDI",attackColor:"#42a5ff",defenseColor:"#ffb43b",duration:2225,points:[
+{time:30,video:180,stage:"A",front:[[2860,2100],[3020,2250],[3030,2580],[2860,2690]],attack:{infantry:[[3340,2660],[3170,2440],[3090,2640],[3220,2210]],vehicles:[[3440,2510,"deploy_m1a4zztk"]]},defense:{infantry:[[2960,2440],[2860,2300],[3000,2160],[2780,2490]],vehicles:[[2760,2210,"deploy_g1bzc"]]}},
+{time:400,video:550,stage:"B1",front:[[2640,1430],[2780,1570],[2860,1720],[2720,1940]],attack:{infantry:[[3020,1940],[2930,1840],[3100,1660],[2940,1510],[2810,1780]],vehicles:[[3140,1900,"deploy_g1bzc"],[3060,2070,"deploy_qxtk"]]},defense:{infantry:[[2810,1650],[2710,1510],[2650,1780],[2760,1900]],vehicles:[[2590,1690,"deploy_g1bzc"]]}},
+{time:1200,video:1350,stage:"C1/C2",front:[[1900,1430],[2090,1540],[2220,1790],[2070,2050]],attack:{infantry:[[2500,1840],[2390,1720],[2320,1940],[2280,1510],[2150,1450]],vehicles:[[2580,1990,"deploy_qxtk"]]},defense:{infantry:[[2200,1830],[2050,1580],[1980,1770],[2110,1980],[1880,1510]],vehicles:[[1900,1920,"deploy_g1bzc"]]}},
+{time:2150,video:2300,stage:"C1/C2",front:[[1870,1440],[2050,1570],[2180,1810],[2040,2070]],attack:{infantry:[[2320,1860],[2200,1710],[2150,1450],[2260,2040]],vehicles:[[2460,2020,"deploy_g1bzc"]]},defense:{infantry:[[2180,1840],[2020,1560],[1980,1810],[2070,2020],[1880,1690]],vehicles:[[1840,1930,"deploy_qxtk"]]}}
+]},
+{round:2,attack:"JDI",defense:"SEA",attackColor:"#ffb43b",defenseColor:"#42a5ff",duration:1525,points:[
+{time:200,video:3050,stage:"A",front:[[2820,2110],[3000,2250],[3020,2580],[2820,2700]],attack:{infantry:[[3380,2600],[3240,2470],[3130,2630],[3170,2240],[3040,2370]],vehicles:[[3470,2480,"deploy_m1a4zztk"]]},defense:{infantry:[[2940,2430],[2840,2260],[3000,2130],[2780,2500]],vehicles:[[2730,2200,"deploy_g1bzc"]]}},
+{time:400,video:3250,stage:"B1",front:[[2580,1430],[2770,1570],[2830,1730],[2680,1950]],attack:{infantry:[[3070,1910],[2970,1780],[3050,1540],[2890,1490],[2820,1740]],vehicles:[[3140,2010,"deploy_g1bzc"],[3000,2070,"deploy_qxtk"]]},defense:{infantry:[[2800,1660],[2670,1500],[2640,1800],[2750,1910]],vehicles:[[2550,1700,"deploy_g1bzc"]]}},
+{time:800,video:3650,stage:"C1/C2",front:[[1870,1430],[2070,1540],[2210,1800],[2050,2060]],attack:{infantry:[[2500,1850],[2400,1730],[2320,1970],[2280,1510],[2160,1450]],vehicles:[[2580,2000,"deploy_qxtk"]]},defense:{infantry:[[2200,1840],[2020,1570],[1980,1810],[2080,2010]],vehicles:[[1870,1900,"deploy_g1bzc"]]}},
+{time:1200,video:4050,stage:"D1/D2",front:[[850,1900],[1110,1990],[1320,2110],[980,2500]],attack:{infantry:[[1690,1980],[1540,2070],[1450,1850],[1390,2240],[1230,2390]],vehicles:[[1760,2110,"deploy_m1a4zztk"],[1580,2320,"deploy_g1bzc"]]},defense:{infantry:[[1310,2080],[1150,1980],[1050,2310],[930,2180],[1180,2490]],vehicles:[[890,2380,"deploy_qxtk"]]}}
+]}
+]};
