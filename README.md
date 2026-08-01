@@ -61,6 +61,8 @@ release\DeltaMap.exe
 
 [`plans`](plans/) 目录保存了可以直接导入 DeltaMap 的赛事战术方案。目前包含百姓杯 SEA vs JDI 断轨地图两回合攻守复盘，蓝色表示 SEA，橙色表示 JDI。
 
+本场严格拆成两份独立 JSON：[`SEA-vs-JDI-断轨-R1.json`](plans/SEA-vs-JDI-断轨-R1.json) 是第一轮 SEA 进攻、JDI 防守并在 C 区守胜；[`SEA-vs-JDI-断轨-R2.json`](plans/SEA-vs-JDI-断轨-R2.json) 是第二轮换边后 JDI 进攻、SEA 防守。每个复盘节点同时保存回合内相对时间 `time` 和原视频比赛时间 `videoTime`，回合还保存 `videoStartSecond`、`videoEndSecond` 与 `durationSeconds`。
+
 同目录还提供本场的[详细中文复盘](plans/SEA-vs-JDI-断轨-详细复盘.md)、[结构化分析数据](plans/SEA-vs-JDI-断轨-详细复盘.json)和可复用于其他比赛的 [JSON Schema](plans/analysis-schema.json)。分析统一记录阶段时间、主攻/次攻方向、人员移动、载具移动、防守结构、转折点和置信度，便于批量积累不同地图与队伍的战术样本。
 
 导入方法：打开 DeltaMap，点击右上角“导出” -> “导入战术文件”，选择对应的 JSON 文件。

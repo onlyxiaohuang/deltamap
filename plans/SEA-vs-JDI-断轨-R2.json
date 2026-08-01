@@ -20,6 +20,24 @@
     "legend": { "#42a5ff": "SEA 防守部署", "#ffb43b": "JDI 进攻部署", "#ffffff": "阶段说明" },
     "confidence": "依据无字幕赛事导播画面的全局航拍、据点进度和交火重心进行宏观复盘。"
   },
+  "review": {
+    "schema": "deltamap-round-review/v1",
+    "round": 2,
+    "attack": "JDI",
+    "defense": "SEA",
+    "result": "SEA 在 D1/D2 防守成功",
+    "videoStartSecond": 2850,
+    "videoEndSecond": 4375,
+    "durationSeconds": 1525,
+    "timeBasis": "Bilibili 视频绝对时间；回合内时间以 47:30 为 00:00，均为 storyboard 导播画面估算",
+    "points": [
+      { "id": "r2-a-start", "time": 0, "videoTime": 2850, "stage": "A", "forceAssessment": "换边后 JDI 沿施工道路集中正面兵力，两翼土坡同步展开；SEA 依托施工建筑分层防守。", "vehicleAssessment": "JDI 载具沿施工道路前压，停在能覆盖开阔区的位置。", "note": "第二轮开始：JDI 进攻，SEA 防守。" },
+      { "id": "r2-b-start", "time": 330, "videoTime": 3180, "stage": "B1", "forceAssessment": "JDI 桥面道路组承接正面，岩坡组保持侧射角；SEA 在桥后和岩坡组织交叉火力。", "vehicleAssessment": "装甲顺道路跟进桥区，与步兵保持间隔，避免同时被桥口封锁。", "note": "JDI 从 A 到 B1 的兵力承接快于第一轮 SEA。" },
+      { "id": "r2-c-start", "time": 570, "videoTime": 3420, "stage": "C1/C2", "forceAssessment": "JDI 厂房正面持续补人，北侧人员牵制 C2；SEA 重点控制两点连接区并局部反推。", "vehicleAssessment": "载具留在厂区外道路，压制点间增援，内部清点由步兵完成。", "note": "正面压力转化为双点拉扯，战线继续西移。" },
+      { "id": "r2-d-start", "time": 990, "videoTime": 3840, "stage": "D1/D2", "forceAssessment": "JDI 沿铁路和中央道路主攻，南北坡面寻找侧后入口；SEA 退入双点纵深互援。", "vehicleAssessment": "装甲沿铁路和开阔地支援，建筑遮挡限制点内控制。", "note": "JDI 进入终局区域，但没有稳定切断 D1/D2 回补。" },
+      { "id": "r2-end", "time": 1525, "videoTime": 4375, "stage": "D1/D2", "forceAssessment": "SEA 利用双点短转场和进点后的暴露窗口反推，JDI 未完成双点清场。", "vehicleAssessment": "外围载具火力没有完全转换为建筑内占领优势。", "note": "第二轮结束：SEA 防守成功。" }
+    ]
+  },
   "currentMap": "dg",
   "mode": "attack",
   "drawings": {

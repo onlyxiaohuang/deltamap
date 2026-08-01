@@ -20,6 +20,23 @@
     "legend": { "#42a5ff": "SEA 进攻部署", "#ffb43b": "JDI 防守部署", "#ffffff": "阶段说明" },
     "confidence": "依据无字幕赛事导播画面的全局航拍、据点进度和交火重心进行宏观复盘。"
   },
+  "review": {
+    "schema": "deltamap-round-review/v1",
+    "round": 1,
+    "attack": "SEA",
+    "defense": "JDI",
+    "result": "JDI 在 C1/C2 防守成功",
+    "videoStartSecond": 150,
+    "videoEndSecond": 2375,
+    "durationSeconds": 2225,
+    "timeBasis": "Bilibili 视频绝对时间；回合内时间以 02:30 为 00:00，均为 storyboard 导播画面估算",
+    "points": [
+      { "id": "r1-a-start", "time": 0, "videoTime": 150, "stage": "A", "forceAssessment": "SEA 主力在施工道路和吊塔正面展开，机动组分到两侧；JDI 点内与后坡分层。", "vehicleAssessment": "SEA 装甲沿东南施工道路前压，在点区外缘掩护步兵过开阔地。", "note": "第一轮开始：SEA 进攻，JDI 防守。" },
+      { "id": "r1-b-start", "time": 360, "videoTime": 510, "stage": "B1", "forceAssessment": "SEA 正面组集中桥头，北侧岩坡保持侧翼；JDI 以桥后建筑和高点连续回补。", "vehicleAssessment": "进攻载具沿道路跟进，在桥头前后探身压制，受狭窄通道限制。", "note": "主攻转向红桥和东侧道路，B1 成为第一轮主要耗时阶段。" },
+      { "id": "r1-c-start", "time": 1110, "videoTime": 1260, "stage": "C1/C2", "forceAssessment": "SEA 分成管线厂房正面组与北侧牵制组；JDI 在 C1/C2 之间保持机动预备力量。", "vehicleAssessment": "载具转到厂区外侧宽路，压制两点间增援，但难以直接控制建筑内部。", "note": "SEA 进入 C 区后未能切断双点回补。" },
+      { "id": "r1-end", "time": 2225, "videoTime": 2375, "stage": "C1/C2", "forceAssessment": "JDI 仍能在两点间横向补防并组织短距离反推；SEA 未进入 D 区。", "vehicleAssessment": "厂房和管线遮挡削弱进攻载具对点内的影响。", "note": "第一轮结束：JDI 在 C 区守胜。" }
+    ]
+  },
   "currentMap": "dg",
   "mode": "attack",
   "drawings": {
