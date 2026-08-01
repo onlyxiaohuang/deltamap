@@ -1,0 +1,1 @@
+window.DELTAMAP_MATCHES={schema:"deltamap-related-matches/v1",updatedAt:"2026-08-01",videos:[{bvid:"BV1QxGM66EJN",title:"【堂主解说】百姓杯全民赛：SEA战队 vs JDI战队",publishedAt:null,account:"索菲亚堂主直播回放",teams:["SEA","JDI"],score:null,url:"https://www.bilibili.com/video/BV1QxGM66EJN/"}]};

@@ -67,6 +67,14 @@ JSON 格式示例见 [`reviews/README.md`](reviews/README.md)。导入和启动�
 
 战术视频来源关注列表保存在 [`sources/bilibili-watchlist.json`](sources/bilibili-watchlist.json)，当前关注“索菲亚堂主直播回放”和“天堂的手比赛解说”。
 
+左侧“对局”页提供相关对局查看，可按队名搜索和筛选，并按发布时间分组，显示视频链接与最终比分。刷新两个账号的投稿数据：
+
+```powershell
+powershell -ExecutionPolicy Bypass -File .\tools\collect-related-matches.ps1 -Cookie "浏览器中的 bilibili.com Cookie"
+```
+
+脚本会分页扫描两个账号的全部投稿，从标题提取 `队名 vs 队名`，从标题和简介提取最终比分，并更新 `sources/related-matches.json` 与网页使用的 `sources/related-matches.js`。未明确写出比分的对局显示“比分未标注”，不会猜测赛果。
+
 无需下载完整视频即可随机抽取 B 站预览帧：
 
 ```powershell
