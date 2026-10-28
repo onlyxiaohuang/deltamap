@@ -8,8 +8,8 @@ using System.Reflection;
 [assembly: AssemblyProduct("DeltaMap 战术地图")]
 [assembly: AssemblyDescription("轻量化三角洲全面战场地图编辑工具")]
 [assembly: AssemblyCompany("JDI")]
-[assembly: AssemblyVersion("1.2.2.0")]
-[assembly: AssemblyFileVersion("1.2.2.0")]
+[assembly: AssemblyVersion("1.2.3.0")]
+[assembly: AssemblyFileVersion("1.2.3.0")]
 
 internal static class Program
 {
@@ -23,15 +23,19 @@ internal static class Program
             string version = assembly.ManifestModule.ModuleVersionId.ToString("N");
             string marker = Path.Combine(root, ".version");
 
-            if (!File.Exists(marker) || File.ReadAllText(marker) != version)
+            if (!File.Exists(marker) || File.ReadAllText(marker) != version || !RuntimeComplete(root))
             {
                 if (Directory.Exists(root)) Directory.Delete(root, true);
                 Directory.CreateDirectory(root);
                 string package = Path.Combine(Path.GetTempPath(), "DeltaMap-" + version + ".zip");
                 using (Stream input = assembly.GetManifestResourceStream("DeltaMap.package.zip"))
-                using (FileStream output = File.Create(package)) input.CopyTo(output);
+                {
+                    if (input == null) throw new InvalidOperationException("EXE 中缺少地图资源包。");
+                    using (FileStream output = File.Create(package)) input.CopyTo(output);
+                }
                 ZipFile.ExtractToDirectory(package, root);
                 File.Delete(package);
+                if (!RuntimeComplete(root)) throw new InvalidOperationException("地图资源解包不完整，请重新启动以从 EXE 修复内置资源。");
                 File.WriteAllText(marker, version);
             }
 
@@ -54,5 +58,30 @@ internal static class Program
         {
             System.Windows.Forms.MessageBox.Show(error.Message, "DeltaMap 启动失败", System.Windows.Forms.MessageBoxButtons.OK, System.Windows.Forms.MessageBoxIcon.Error);
         }
+    }
+
+    private static bool RuntimeComplete(string root)
+    {
+        string[] required =
+        {
+            "index.html",
+            "app.js",
+            Path.Combine("assets", "data", "map_mgjcq.js"),
+            Path.Combine("assets", "maps", "map_pc", "4_0_0.jpg")
+        };
+        foreach (string relative in required)
+        {
+            string path = Path.Combine(root, relative);
+            if (!File.Exists(path) || new FileInfo(path).Length == 0) return false;
+        }
+
+        string mapFolder = Path.Combine(root, "assets", "maps", "map_mgjcq");
+        for (int x = 0; x < 16; x++)
+        for (int y = 0; y < 16; y++)
+        {
+            string tile = Path.Combine(mapFolder, "4_" + x + "_" + y + ".jpg");
+            if (!File.Exists(tile) || new FileInfo(tile).Length == 0) return false;
+        }
+        return true;
     }
 }
